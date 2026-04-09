@@ -128,3 +128,67 @@ Conceptual and architectural grounding for why AI search is different from keywo
 - [Commercialized Generative AI: Ethics of Native Advertising in Conversational Search](https://arxiv.org/abs/2310.04892) - Demonstrates that LLMs can blend sponsored content into AI-generated answers indistinguishably from organic responses (Zelch et al., 2023); as paid inclusion enters AI answers, organic authority signals - earned media, established backlink profiles, factual recurrence - become the primary differentiators between paid and unpaid AI visibility.
 
 ---
+
+## Content Engineering
+
+Evidence-based frameworks for structuring and writing content that AI engines retrieve, absorb, and cite. Includes tooling for evaluation and optimization.
+
+- [Answer Engine Optimization Playbook](https://discoveredlabs.com/blog/answer-engine-optimization-playbook-how-to-get-cited-2025) - Practical framework covering owned page optimization via the CITABLE framework, third-party mention building, competitor comparison positioning, and review site strategy - the operational translation of the citation research into content team workflows.
+
+- [Reverse-Engineering the GPT-5 Tokenizer for AEO/GEO](https://metehan.ai/blog/reverse-engineering-the-gpt-5-tokenizer-aeo-geo) - Analysis of 200,019 o200k_base tokens reveals plain prose achieves 2.2x better retrieval density than markdown tables (5.9 chars/token vs. 2.7 chars/token), numerals outperform written-out words, common abbreviations outperform full names, and leading with answers maximizes context-window efficiency; directly explains why format choices that look equivalent to humans have measurably different citation outcomes inside the model's context window.
+
+- [CITABLE: The AEO Content Framework for Getting B2B Brands Cited by AI](https://discoveredlabs.com/blog/citable-the-aeo-content-framework-we-use-to-get-b2b-brands-cited-by-ai) - Defines the seven-dimension CITABLE framework in implementation terms: Clear entity and structure (2–3 sentence lead definitions), Intent architecture (primary and adjacent query coverage), Third-party validation (Wikipedia, reviews, news citations), Answer grounding (verifiable facts with sources), Block-structured for RAG (200–400 word self-contained sections), Latest and consistent (timestamps and unified facts across pages), Entity graph and schema (explicit relationships via JSON-LD); the practitioner translation of the same framework scored by the AEO Content Evaluator tool.
+
+- [Structural Feature Engineering for GEO (GEO-SFE)](https://arxiv.org/abs/2603.29979) - Hierarchical three-level content structure framework targeting macro (document architecture), meso (information chunking), and micro (visual emphasis) levels (Yu et al., 2026); validated 17.3% citation rate improvement and 18.5% subjective quality improvement across six generative engines, confirming structural optimization generalizes across engine architectures.
+
+- [Think Before Writing: FeatGEO](https://arxiv.org/abs/2604.19113) - Optimizes document-level structural, content, and linguistic feature configurations before generating text rather than editing tokens post-hoc (Liu and Xu, 2026); document-level properties influence citation behavior more strongly than isolated word-level edits, and configurations generalize across LLM scales.
+
+- [SAGEO Arena: Realistic Evaluation of Search-Augmented GEO](https://arxiv.org/abs/2602.12187) - End-to-end benchmark under realistic retrieval conditions showing that popular GEO tactics - keyword injection, prompt-style text additions - degrade performance at retrieval and reranking stages (Kim et al., 2026); structural web markup (schema.org) is one of the few signals that reliably survives the full pipeline, requiring stage-specific optimization strategies rather than document-level heuristics.
+
+- [E-GEO: E-Commerce GEO Benchmark](https://arxiv.org/abs/2511.20867) - 7,000+ product queries with 15 rewriting heuristics evaluated against an iterative optimization algorithm (Bagga et al., 2025); a domain-agnostic stable content pattern emerges from iterative optimization that substantially outperforms all 15 heuristic baselines - the structured listing format generalizes beyond e-commerce.
+
+- [Iterate Until Retrieved: Factual Nugget Optimization](https://arxiv.org/abs/2605.25641) - Iterative framework converting factual corrections into knowledge-base entries structured for reliable retrieval in production RAG pipelines (Hazoom et al., 2026); standard semantically correct entries are not reliably retrieved - iterative format and phrasing optimization substantially improves discoverability in real B2B RAG systems.
+
+- [Retrieval Collapses When AI Pollutes the Web](https://arxiv.org/abs/2602.16136) - With 67% synthetic content in a retrieval pool, over 80% of surfaced results become AI-generated while accuracy appears stable (Yu et al., 2026); original, human-authored content with unique provenance signals becomes increasingly scarce and therefore prioritized by quality-aware rankers - differentiated content is a durable long-term AEO asset.
+
+- [BibTeX Citation Hallucinations in Scientific Publishing Agents](https://arxiv.org/abs/2604.03159) - Even search-enabled LLMs default to parametric memory over live retrieval, producing a 27-point accuracy drop for recent vs. established content (Rao and Callison-Burch, 2026); longevity and accumulated authoritative back-references are stronger citation guarantors than recency for most topics, and structural unambiguity reduces hallucination risk.
+
+- [Controlling Output Rankings in Generative Engines (CORE)](https://arxiv.org/abs/2602.03608) - 91.4% promotion success rate at Top-5 using content injection strategies across GPT-4o, Gemini, Claude, and Grok (Jin et al., 2026); included as a security warning - exposes the ranking manipulation vulnerability that will motivate counter-measures from engine developers against aggressive content injection tactics.
+
+- [AEO Content Evaluator](https://discoveredlabs.com/tools/aeo-content-evaluator) - Free tool scoring pasted content (up to 15,000 characters) across seven CITABLE dimensions: Semantic Clarity, Citation & Answer Analysis, RAG Optimization, Third-party Validation, Intent Architecture, Freshness & Consistency, and AI Detection - outputs an overall readiness score, strength/weakness breakdown, and prioritized improvement recommendations with re-evaluation capability.
+
+- [Heading Optimizer](https://discoveredlabs.com/tools/heading-optimizer) - Free tool generating 10+ headline variants ranked via pairwise tournament comparison using log probabilities, with beam search refinement producing a Pareto-optimal ranked list trading off AI citation preference against Flesch-Kincaid readability; evaluates query fan-outs and AGREE citation grounding in 30–60 seconds per run.
+
+---
+
+## Technical SEO
+
+Implementation references for engineers configuring sites for AI crawler access, structured data coverage, and agent-compatible content serving.
+
+- [Google AI Overviews: Official Indexing and Control Documentation](https://developers.google.com/search/docs/appearance/ai-overviews) - Authoritative on what engineers can and cannot control: AI Overviews use query fan-out across multiple parallel sub-searches; no special markup exists beyond standard Search eligibility; inclusion is controlled via `robots.txt`, `nosnippet`, `data-nosnippet`, `max-snippet`, and `noindex` directives.
+
+- [Google: Creating Helpful, Reliable, People-First Content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) - Google's authoritative documentation on E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness); while the isolated contribution of E-E-A-T to AI Overview citation probability is an open empirical question, the authority signals it codifies - author credentials, institutional affiliation, factual accuracy, peer citation - appear consistently as citation predictors in empirical studies including the Authority Signals paper above.
+
+- [WebMCP W3C Community Group Draft](https://github.com/webmachinelearning/webmcp) - Spec authored by Microsoft and Google defining `navigator.modelContext.registerTool()` as a browser-native JS API; zero infrastructure required - tools execute in page context sharing user auth. Status: CG-DRAFT with core API defined, security model under active development. The architectural reference for browser-side agent-compatible content exposure, complementing server-side llms.txt and MCP approaches.
+
+- [Introduction to Structured Data for Google Search](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data) - Implementation guide covering JSON-LD (recommended), Microdata, and RDFa formats; required vs. recommended properties for rich result eligibility; and the validation toolchain (Rich Results Test, Rich Result Status Reports, URL Inspection Tool) - explicitly links structured data completeness to AI feature eligibility.
+
+- [Schema.org Technical Documentation](https://schema.org/docs/documents.html) - Full type hierarchy (downloadable as a single file), data model, extension mechanism for custom vocabulary, and domain-specific vocabularies (health, automotive, financial services, hospitality) at V30.0 (2026-03-19) - the authoritative vocabulary reference underlying all Google structured data and AI search grounding.
+
+- [llms-txt-hub](https://github.com/thedaviddias/llms-txt-hub) - Largest curated directory of llms.txt implementations (863 stars): searchable registry with generators, validators, and integration guides for Next.js, Docusaurus, Hugo, and Astro - the primary reference for the llms.txt standard.
+
+- [dualmark](https://github.com/dodopayments/dualmark) - Dual-serves clean Markdown to AI bots and polished HTML to humans from the same URL via HTTP content negotiation (91 stars); six framework adapters (Next.js, Astro, SvelteKit, Cloudflare Workers, Deno Deploy, Vercel Edge), CLI conformance scorer (0–125 pts), and automatic llms.txt generation. Apache 2.0 with patent grant.
+
+- [aeo.js](https://github.com/multivmlabs/aeo.js) - Framework-agnostic library (100 stars) generating llms.txt, robots.txt, sitemaps, and JSON-LD structured data with a browser-based AI-crawler visibility scorer (0–100) and a widget for toggling AI-readable markdown views; supports Astro, Next.js, Nuxt, Remix, SvelteKit, Angular, Vite, and plain CLI. MIT.
+
+- [MCP vs RAG vs NLWeb vs HTML](https://arxiv.org/abs/2511.23281) - RAG outperforms raw HTML, API endpoints, and natural-language web interfaces for AI agent retrieval on both accuracy and efficiency (Steiner et al., 2025); how content is exposed to agents matters as much as the content itself - the architectural decision guide for structuring content exposure for AI agent discoverability.
+
+- [GPTBot Crawled 60,000 Pages 30,000+ Times in 12 Hours](https://metehan.ai/blog/i-built-a-60-000-page-ai-website-for-10-gptbot-crawled-it-30-000-times-in-12-hours) - Controlled experiment on a new domain with zero backlinks: GPTBot made 29,000+ requests at approximately one per second within 12 hours - a 470x higher crawl volume than Googlebot over the same period; confirms AI crawlers are extremely aggressive at discovering and processing new content regardless of domain authority, making crawl budget management a distinct engineering concern from traditional SEO.
+
+- [Crawling 65,000 Pages Without Parsing HTML: HTTP Headers as LLM Crawler Targets](https://metehan.ai/blog/http-headers-internal-links) - Encoding internal link graphs and heading hierarchies as base64url-compressed JSON directly in HTTP response headers (`X-Internal-Links`, `X-Headings`) achieves 8.6x faster crawl speeds with edge caching versus HTML parsing; revealed 41.9% of pages were orphaned (unreachable via internal navigation) - a site architecture problem invisible to traditional crawlers that LLM crawlers are disproportionately exposed to.
+
+- [Agentic Browsing Checker](https://discoveredlabs.com/tools/agentic-browsing-checker) - Free tool running 19 checks across the OPERABLE framework's eight pillars: WebMCP tool registration, form annotation coverage, accessibility tree quality, llms.txt validation, ARIA live region coverage, button keyboard operability, and AI crawler robots.txt access; uses Puppeteer, Lighthouse, and WebMCP W3C draft compliance testing, delivers a scored report by email in 45–90 seconds.
+
+- [AI Assist Widget](https://discoveredlabs.com/tools/ai-assist-widget) - Free tool: single script tag (<5KB minified, zero external dependencies, CSS scoped with unique IDs) that adds a floating bar of buttons opening ChatGPT, Claude, Perplexity, Grok, or Gemini in a new tab with the current page URL pre-filled in the prompt; configurable engine selection, position, colors, labels, and default prompt; no tracking, analytics, or external requests - runs entirely in-browser; each visitor interaction exposes the page to an AI system that processes and learns from the content.
+
+---

@@ -192,3 +192,45 @@ Implementation references for engineers configuring sites for AI crawler access,
 - [AI Assist Widget](https://discoveredlabs.com/tools/ai-assist-widget) - Free tool: single script tag (<5KB minified, zero external dependencies, CSS scoped with unique IDs) that adds a floating bar of buttons opening ChatGPT, Claude, Perplexity, Grok, or Gemini in a new tab with the current page URL pre-filled in the prompt; configurable engine selection, position, colors, labels, and default prompt; no tracking, analytics, or external requests - runs entirely in-browser; each visitor interaction exposes the page to an AI system that processes and learns from the content.
 
 ---
+
+## Measurement & Evaluation
+
+Statistical frameworks and tooling for building AEO measurement systems that distinguish signal from noise - the highest-stakes section for teams making investment decisions based on AI visibility data.
+
+- [Quantifying Uncertainty in AI Visibility](https://arxiv.org/abs/2603.08924) - AI search citation distributions follow power laws with high variance, making single-run visibility metrics statistically unreliable for decision-making (Sielinski, 2026); bootstrap confidence intervals show many apparent performance differences fall within measurement noise, with minimum sample size guidance for Perplexity, SearchGPT, and Gemini.
+
+- [Why Most AEO Tools Give You Noise](https://discoveredlabs.com/blog/aeo-test-bed-noise-vs-signal) - Practical companion to the Sielinski paper defining what rigorous AEO measurement requires: credible intervals, multi-run consistency checks, and explicit separation of between-question variance (different prompts yielding 60% vs. 20% mention rates) from within-question variance (LLM stochasticity across runs of the same prompt).
+
+- [LLM Eval Calculator](https://discoveredlabs.com/tools/llm-eval-calculator) - Free tool calculating statistically required sample sizes for measuring brand mention rates across AI platforms; accounts for both between-question and within-question variance and outputs unique prompts required, total API calls, and time estimates - at 95% confidence, ±2% margin, K=3 resamples: 353 unique prompts × 3 = 1,059 total API calls.
+
+- [Disentangling AEO from Platform Growth](https://arxiv.org/abs/2606.04362) - (Cross-listed from [Research & Papers](#research--papers).) Methodological template for natural experiments isolating true causal AEO effect from platform-level growth; genuine lift was 1.82× while raw site-wide ChatGPT traffic grew 5.7× from platform expansion alone.
+
+- [16 Months of Google Search Console Data as a Vector Database](https://metehan.ai/blog/i-turned-16-months-of-google-search-console-data-into-a-vector-database-heres-what-i-learned) - GSC performance data embedded via Gemini and stored in ChromaDB enables semantic query discovery (related queries without exact keyword matching) that SQL cannot surface; concludes the optimal measurement stack combines SQL for exact metric queries with a vector DB for exploratory gap analysis - directly applicable to building AEO measurement infrastructure on top of existing search data.
+
+- [Why AI Visibility Trackers Are Not Measuring What You Think They Are](https://discoveredlabs.com/blog/ai-tracking-platforms-test-flaw) - Identifies a fundamental measurement flaw across most AI visibility platforms: incognito mode testing lacks the web search tools available to 99% of logged-in ChatGPT users, creating a measurable divergence where domains showing 0% citation rate in incognito testing show 5–8% under real user conditions; includes reverse-engineered tool capability specifications from ChatGPT's own API responses and an analysis of OpenAI's SerpAPI cost structure driving the discrepancy.
+
+- [The Scientific Method for AEO: How to Model, Test, and Win AI Search](https://discoveredlabs.com/blog/how-to-model-test-win-ai-search-for-your-brand) - Presents a controlled single-variable AEO testing framework: intelligent resampling to reduce LLM variance, clustered standard errors for related prompts, and power analysis for proper sample sizing; tests isolate content structure, authority signals, and entity relationships across 100+ prompts with multiple reruns to achieve statistical significance - the practitioner implementation of the methodology described in the academic papers above.
+
+- [Reddit & ChatGPT Influence 2025](https://discoveredlabs.com/research/reddit-chatgpt-influence-2025) - 144,284 AI citations across ChatGPT, Google AI Overviews, and Gemini collected November–December 2025, with traffic interception used to derive RRF slot allocation independently of visible citations; the methodology section is a reusable template for reverse-engineering how specific engines weight any source type.
+
+- [Discovered Labs: AI Visibility Tracker](https://discoveredlabs.com/technology/ai-visibility-tracker) - Managed monitoring platform testing real buyer questions (sourced from Google Search Console, support tickets, call transcripts, and subreddits) across ChatGPT, Claude, Perplexity, Google AI Overviews, and Gemini every five days; tracks citation rate, mention rate, average ranking position, share of voice, citation source breakdown (Reddit, reviews, YouTube, blogs), brand perception scoring, and competitor benchmarking; statistically rigorous - each prompt runs multiple times with 95% credible intervals, and movements only register after three consecutive significant runs to eliminate LLM stochasticity noise.
+
+---
+
+## Reddit & Off-Page Signals
+
+Reddit is a high-leverage AEO surface that most technical teams underinvest in because the relationship between retrieval usage and visible attribution is counterintuitive. Evidence and tooling for understanding and acting on Reddit as an AI citation signal.
+
+- [Reddit & ChatGPT Influence 2025](https://discoveredlabs.com/research/reddit-chatgpt-influence-2025) - 28,633 ChatGPT citations analyzed: Reddit occupies ~27% of ChatGPT's RRF retrieval allocation (~16 of ~60 slots) yet appears in only 0.35% of visible citations - a 99% gap between retrieval usage and visible attribution; Google cites Reddit at 2.11%, Gemini at 0.99%, making the inter-engine attribution gap a strategically actionable signal.
+
+- [Reddit Threads Finder](https://discoveredlabs.com/tools/reddit-threads-finder) - Free tool identifying Reddit threads currently cited in ChatGPT and Gemini responses for a given domain: analyzes your site to infer buyer questions, runs those through ChatGPT and Gemini, scores each thread on opportunity score (AI visibility potential) and relevance score (commercial intent, engagement metrics, recency, AI visibility gap), and returns a subreddit-level breakdown within 1–2 minutes.
+
+- [Generative Engine Optimization at Scale: Measuring Brand Visibility](https://arxiv.org/abs/2606.20065) - (Cross-listed from [Research & Papers](#research--papers).) YouTube and Reddit are the top non-corporate cited sources; best-of listicle thread format accounts for ~21% of citations - directly informing which thread types to create or participate in.
+
+- [Generative Engine Optimization: How to Dominate AI Search](https://arxiv.org/abs/2509.08919) - (Cross-listed from [Research & Papers](#research--papers).) Earned-media framework: high-engagement Reddit threads with authoritative contributors qualify as earned media, which far outperforms owned content across all tested engines.
+
+- [One Polluted Page Is Enough](https://arxiv.org/abs/2606.13610) - A single strategically placed document in the retrieval corpus steers AI recommendations across all tested models (Luo and Chen, 2026); the corollary for legitimate AEO: one high-authority third-party mention on a well-ranked domain can meaningfully lift brand surfacing in AI-generated recommendations.
+
+> **Research gap:** No peer-reviewed paper exists specifically analyzing Reddit as a controlled AEO optimization surface. The Discovered Labs research above is the primary empirical source for this section.
+
+---

@@ -234,3 +234,68 @@ Reddit is a high-leverage AEO surface that most technical teams underinvest in b
 > **Research gap:** No peer-reviewed paper exists specifically analyzing Reddit as a controlled AEO optimization surface. The Discovered Labs research above is the primary empirical source for this section.
 
 ---
+
+## Agentic SEO
+
+AI agents - coding assistants, browser agents, autonomous research systems - are a search surface architecturally distinct from conversational AI. Agentic retrieval requires different infrastructure and content choices than traditional AI search optimization.
+
+Key differences from conversational AEO:
+
+- Agents generate their own queries from internal hypotheses, not from user queries passed directly to retrieval ([LiveBrowseComp](https://arxiv.org/abs/2605.28721)): ~45% of agent answers bypass search entirely; content must match the model's internal framing of a topic.
+- Agentic rerankers are evolving beyond relevance scores to emit contribution summaries and evidence passages ([Prism-Reranker](https://arxiv.org/abs/2604.23734)) - content that explicitly articulates its distinctive value is preferred over content that only covers the topic.
+- How content is exposed to agents matters as much as content quality - RAG-compatible APIs and semantic feeds outperform plain HTML for agent discoverability ([MCP vs RAG vs NLWeb vs HTML](https://arxiv.org/abs/2511.23281)).
+- Site architecture can be designed to guide agent navigation trajectories across pages, not just to optimize individual documents ([EcoGEO](https://arxiv.org/abs/2605.12887)).
+
+Discovered Labs operates an MCP server providing AEO-specific workflows - prompt hygiene, citation auditing, Reddit opportunity scoring, and AI engine querying - available inside Claude Desktop and Cursor. No public repository.
+
+For a curated list of agentic GEO frameworks, MCP servers for SEO data, agent skill packages, and autonomous content pipelines, see [awesome-aeo-seo-agents](https://github.com/discoveredlabs/awesome-aeo-seo-agents).
+
+---
+
+## Open Source Tools
+
+GitHub repositories with runnable code. Stars noted as of curation date. Vendor names appear in descriptions where relevant; no vendor URLs are linked.
+
+### Audit & Optimization
+
+- [geo-optimizer-skill](https://github.com/Auriti-Labs/geo-optimizer-skill) - 47 research-backed checks across 8 scoring categories (0–100), querying real engines (ChatGPT, Perplexity, Gemini, Google AI Overviews, Claude) to verify actual citations; auto-generates llms.txt, JSON-LD schema, and robots.txt rules with CLI, Python library, MCP server, Astro integration, and CI/CD support. 502 stars, Python.
+
+- [AutoGEO](https://github.com/cxcscmu/AutoGEO) - ICLR 2026 implementation automatically extracting content preferences from generative engines and rewriting documents to improve AI citation rates; two modes: AutoGEOAPI (prompt-based) and AutoGEOMini (RL-trained), evaluated with GEO visibility score and GEU utility preservation metric. 177 stars, Python.
+
+- [GEO](https://github.com/GEO-optim/GEO) - Reference implementation from the KDD 2024 foundational paper: GEO-BENCH dataset, custom optimization function framework, and leaderboard - the empirical baseline against which subsequent GEO claims should be validated. 293 stars, Python.
+
+- [agentic-seo](https://github.com/addyosmani/agentic-seo) - CLI audit for agentic engine optimization: 10 checks across 5 categories (Discovery, Content Structure, Token Economics, Capability Signaling, UX Bridge) scored 0–100; scaffolds missing AEO files (llms.txt, AGENTS.md, skill.md); supports Next.js, Astro, Hugo, and Docusaurus. 244 stars, JavaScript.
+
+- [seobuild-onpage](https://github.com/gbessoni/seobuild-onpage) - Full page generation pipeline: pulls live SERP data, analyzes top competitors, extracts People Also Ask, finds content gaps, and writes structured pages with FAQ sections and schema markup; includes a 55-point post-generation quality checklist targeting Google AI Overviews and Perplexity explicitly. 218 stars, Python. MIT.
+
+- [claude-seo](https://github.com/AgriciDaniel/claude-seo) - Universal SEO agent skill for Claude Code: 25+ sub-skills and 18 specialist agents covering technical SEO, E-E-A-T, Schema.org (30+ types), GEO/AEO via `/seo geo` sub-skill, backlink analysis, local SEO, semantic clustering, and e-commerce; SPA-aware via Playwright with optional Firecrawl and DataForSEO MCP extensions. 9,900 stars, Python. MIT.
+
+### AI Visibility Monitoring
+
+- [elmo](https://github.com/elmohq/elmo) - Self-hosted visibility monitor tracking ChatGPT, Claude, and Perplexity with competitor benchmarking and full data ownership; stack: Docker Compose + PostgreSQL + TanStack Start; actively maintained through v0.2.13. 148 stars, TypeScript. MIT.
+
+- [canonry](https://github.com/Canonry/canonry) - Self-hostable AEO monitoring platform tracking citations across Gemini, ChatGPT, Claude, and Perplexity; ingests server logs from Cloud Run, Vercel, and WordPress; integrates Google Search Console, GA4, and Bing Webmaster Tools; discovers backlinks via Common Crawl using local DuckDB; 67-tool MCP adapter for Claude Desktop. 71 stars, TypeScript. FSL-1.1-ALv2 (converts to Apache 2.0 after 2 years).
+
+- [ai-brand-monitor-mcp](https://github.com/khadinakbarlabs/ai-brand-monitor-mcp) - MCP server tracking brand visibility across Perplexity, ChatGPT, Claude, and Gemini with domain citation detection, competitor co-mention analysis, and a 0–100 GEO visibility score with actionable recommendations; deployable inside any MCP-compatible coding assistant or agent pipeline. 56 stars, TypeScript. MIT.
+
+- [ansvisor](https://github.com/ansvisor/ansvisor) - Self-hosted citation tracker (Next.js 16 + Express + PostgreSQL) monitoring 8+ AI engines with weekly trend dashboards, topic/intent clustering, URL-level citation analytics with geographic breakdown, and AI-generated content briefs with CMS webhook delivery. 36 stars, TypeScript. MIT.
+
+### Technical Infrastructure
+
+- [llms-txt-hub](https://github.com/thedaviddias/llms-txt-hub) - Largest curated directory of llms.txt implementations (863 stars): searchable registry with generators, validators, and integration guides for Next.js, Docusaurus, Hugo, and Astro - the primary reference for the llms.txt standard.
+
+- [dualmark](https://github.com/dodopayments/dualmark) - Dual-serves clean Markdown to AI bots and polished HTML to humans from the same URL via HTTP content negotiation; six framework adapters, CLI conformance scorer (0–125 pts), and Apache 2.0 with patent grant. 91 stars, TypeScript.
+
+- [aeo.js](https://github.com/multivmlabs/aeo.js) - Framework-agnostic library generating llms.txt, robots.txt, sitemaps, and JSON-LD structured data with a browser-based AI-crawler visibility scorer and markdown widget; supports Astro, Next.js, Nuxt, Remix, SvelteKit, Angular, Vite, and CLI. 100 stars, TypeScript. MIT.
+
+- [agent-seo](https://github.com/pontiggia/agent-seo) - Middleware detecting 17+ AI crawler user agents (GPTBot, ClaudeBot, and others) and serving clean Markdown instead of HTML; adapters for Next.js, Express, Fastify, and Hono - the server-side content negotiation option for server-rendered frameworks without CDN transform support.
+
+### Data & Research
+
+- [open-seo](https://github.com/every-app/open-seo) - Open-source SEO data platform: keyword research, rank tracking, competitor analysis, backlink analysis, and site audits with an MCP interface for AI agent workflows; self-hostable via Docker or Cloudflare with optional Google Search Console integration. 3,100 stars, TypeScript. MIT.
+
+- [firecrawl](https://github.com/firecrawl/firecrawl) - Converts any URL into clean LLM-ready Markdown or structured data with dynamic page support, batch crawling, and site mapping - the de facto standard infrastructure layer for competitive content research, knowledge base construction, and SERP data extraction in multi-agent SEO pipelines. 30,000+ stars, TypeScript.
+
+- [gpt-researcher](https://github.com/assafelovic/gpt-researcher) - Autonomous research agent that plans, searches, scrapes, and synthesizes reports with citations; most relevant for competitive intelligence, content gap analysis, and building the type of citation-worthy original research that the citation data shows dominates AI engine outputs. 27,900 stars, Python.
+
+---

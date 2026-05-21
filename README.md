@@ -299,3 +299,43 @@ GitHub repositories with runnable code. Stars noted as of curation date. Vendor 
 - [gpt-researcher](https://github.com/assafelovic/gpt-researcher) - Autonomous research agent that plans, searches, scrapes, and synthesizes reports with citations; most relevant for competitive intelligence, content gap analysis, and building the type of citation-worthy original research that the citation data shows dominates AI engine outputs. 27,900 stars, Python.
 
 ---
+
+## Related Lists
+
+- [awesome-aeo-seo-tools](https://github.com/discoveredlabs/awesome-aeo-seo-tools) - Discovered Labs curated list of free and open-source tools for AEO/GEO auditing, monitoring, content optimization, MCP servers for SEO data, and agent skill packages - deeper tool coverage than this list.
+- [awesome-aeo-seo-agents](https://github.com/discoveredlabs/awesome-aeo-seo-agents) - Discovered Labs curated list covering agentic GEO frameworks, MCP servers for SEO/AEO data, agent skill packages, content generation pipelines, and agentic browsing compatibility resources - the companion for engineering teams building agent-native SEO systems.
+- [awesome-generative-engine-optimization](https://github.com/amplifying-ai/awesome-generative-engine-optimization) - Community-maintained list of GEO resources covering papers, tools, and articles.
+- [Awesome-GEO](https://github.com/DavidHuji/Awesome-GEO) - Academic-focused curated list of GEO papers organized by topic.
+
+---
+
+## People to Follow
+
+Researchers, educators, and practitioners whose work is most directly relevant to understanding LLM retrieval, evaluation, and agentic systems - the foundation for technical AEO work.
+
+### Researchers and Educators
+
+- [Elvis Saravia - DAIR.AI](https://dair.ai) - Founder of Democratizing AI Research; publishes the most widely used practical guides on prompt engineering, LLM evaluation, and RAG - required reading before building any AEO measurement or optimization pipeline.
+- [Lilian Weng - Lil'Log](https://lilianweng.github.io) - OpenAI research blog covering RAG architectures, agent planning, emergent LLM behaviors, and RL foundations; the best single source for understanding the systems AEO optimizes for at a mechanistic level.
+- [Sebastian Ruder](https://ruder.io) - Google DeepMind; multilingual NLP, cross-lingual transfer, and NLP progress tracking; the primary research reference for the multilingual AEO gap.
+- [Chip Huyen](https://huyenchip.com) - Stanford CS329S instructor; ML systems design, production LLM deployment, and evaluation methodology; practical experimental design for engineers building AEO measurement systems.
+- [Eugene Yan](https://eugeneyan.com) - Applied ML at Amazon; information retrieval, recommendation systems, and LLM evaluation; most relevant for understanding retrieval decay dynamics and content quality signals over time.
+- [Jay Alammar](https://jalammar.github.io) - Visualizations of transformer internals, attention mechanisms, and embedding space behavior; builds the intuition for why content structure influences what models retrieve and absorb.
+- [Andrej Karpathy](https://karpathy.ai) - LLM architecture, tokenization, and model internals; most relevant for understanding the parametric knowledge boundary that determines when live-web AEO matters at all versus when content is already embedded in weights.
+
+### University Labs
+
+- [Stanford CRFM - Percy Liang](https://crfm.stanford.edu) - Center for Research on Foundation Models; publishes HELM (holistic LLM evaluation) and foundation model transparency research - the methodological reference for longitudinal AEO measurement and controlled evaluation design.
+- [CMU Language Technologies Institute - Graham Neubig](http://www.phontron.com) - Multilingual NLP, RAG systems, and query routing research; CS11-711 Advanced NLP is free online and covers embedding evaluation and retrieval methodology directly applicable to AEO measurement.
+- [MIT CSAIL - Jacob Andreas](https://people.csail.mit.edu/jda/) - Language grounding, long-context retrieval, and compositional semantics; most relevant to the long-context chunking and retrieval optimization gap.
+
+### Courses
+
+- [Stanford CS224N: NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) - Christopher Manning; the foundational NLP course covering retrieval, embeddings, and language model architecture - prerequisite for understanding GEO at a mechanistic level.
+- [Stanford CS329S: ML Systems Design](https://stanford-cs329s.github.io) - Chip Huyen; experimental design, evaluation pipelines, and production ML - directly applicable to building rigorous AEO measurement infrastructure.
+- [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/) - Free lecture series on transformer architecture, multimodal models, and emerging LLM applications; available on YouTube.
+- [MIT 6.S191: Introduction to Deep Learning](http://introtodeeplearning.com) - Alexander Amini; covers neural networks, retrieval, and multimodal learning - the shortest path to understanding AI search retrieval mechanics from first principles.
+- [CMU CS11-711: Advanced NLP](https://phontron.com/class/anlp2025/) - Graham Neubig; free online; covers RAG, embedding evaluation, and multilingual NLP - the graduate-level reference for AEO measurement methodology.
+- [Deeplearning.ai: AI Agents in LangGraph](https://www.deeplearning.ai/courses/ai-agents-in-langgraph/) - Andrew Ng and Harrison Chase; multi-agent architectures, tool use, and agentic pipeline design - the practical foundation for building agentic AEO pipelines.
+
+---

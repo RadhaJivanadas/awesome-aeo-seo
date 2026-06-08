@@ -339,3 +339,15 @@ Researchers, educators, and practitioners whose work is most directly relevant t
 - [Deeplearning.ai: AI Agents in LangGraph](https://www.deeplearning.ai/courses/ai-agents-in-langgraph/) - Andrew Ng and Harrison Chase; multi-agent architectures, tool use, and agentic pipeline design - the practical foundation for building agentic AEO pipelines.
 
 ---
+
+## Contributing
+
+See [contributing.md](contributing.md) for submission guidelines and open research problems this list is looking to fill.
+
+---
+
+## License
+
+[![CC0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, [Discovered Labs](https://discoveredlabs.com) has waived all copyright and related rights to this work.
